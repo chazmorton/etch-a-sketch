@@ -1,0 +1,9 @@
+.grid-inner {
+    display: flex;
+}
+
+.grid-item {
+    width: 50px;
+    height: 50px;
+    outline: 1px solid black;
+}
