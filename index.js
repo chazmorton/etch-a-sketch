@@ -1,25 +1,28 @@
 const container = document.querySelector(".container");
 const gridWidth = 960;
 
-function createInitialGrid() {
+function createGrid(length) {
 
-    const boxWidth = 960 / 16;
+    const boxWidth = gridWidth / length;
     console.log(`Box Width & Height: ${boxWidth}`);
 
-    for(let i = 0; i < 16; i++) {
+    for(let i = 0; i < length; i++) {
         const row = document.createElement("div");
         row.setAttribute("style", "display: flex;")
         container.appendChild(row);
-        for(let j = 0; j < 16; j++) {
+        for(let j = 0; j < length; j++) {
             const square = document.createElement("div");
             square.setAttribute("id", "square");
             square.setAttribute("style", `width: ${boxWidth}px; height: ${boxWidth}px; outline: 1px solid black;`);
-            square.textContent = `${i} x ${j}`;
+            // square.textContent = `${i} x ${j}`;
             row.appendChild(square);
+            square.addEventListener("mouseover", function (e) {
+                e.target.style.background = 'blue';
+            });
         }
     }
 
 }
 
-createInitialGrid();
+createGrid(100);
 
